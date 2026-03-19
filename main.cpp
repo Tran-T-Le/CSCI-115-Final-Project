@@ -2,8 +2,8 @@
 Author(s) Group 3: Gurleen Kaur, Tran Le, Vanessa Salinas, Vickydel Gutierrez
 Course: CSCI 115 Project
 Assignment: Sorting Algorithms
-
 *******************************************************************************/
+
 #include <iostream>
 #include <ctime>
 #include "SelectionSort.cpp"
@@ -20,6 +20,31 @@ Validate correctness (unit tests)
 All implemented sorts pass correctness tests on random + edge cases*/
 //------------------------------------------------------------------------------------------------------------------------------
 
+// array of random values <size
+void randomArr(int* arr, int size) {
+    for (int i = 0; i < size; i++) {
+        
+        arr[i] = rand()%size;
+    }
+}
+
+// random values of 7 digits 
+void randomLargeArr(int* arr, int size) {
+    for (int i = 0; i < size; i++) {
+
+        arr[i] = rand()+1000000 % (10000000);
+    }
+}
+
+// array of random values where one is much larger than the others
+// radix worst case
+void oneArr(int* arr, int size) {
+    arr[size - 1] = 1000000;
+    for (int i = 0; i < size-1; i++) {
+
+        arr[i] = rand()%1000;
+    }
+}
 
 using namespace std;
 //------------------------------------------------------------------------------------------------------------------------------
@@ -30,6 +55,8 @@ int main() {
     
     cout << "Choose one of the following sorting algorithms: \n";
     cout << "[1]: Bubble Sort, [2]: Selection Sort, [3]: Insertion Sort, [4]: Merge Sort, [5]: Quick Sort, [6]: Heap Sort, [7]: Counting Sort, [8]: Radix Sort\n";
+
+    cout << "Select " << endl;
 
     
     return 0;
