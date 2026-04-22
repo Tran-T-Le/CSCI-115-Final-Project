@@ -7,25 +7,26 @@ Assignment: Sorting Algorithms
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
-
-#include "BubbleSort.cpp"
 #include "SelectionSort.cpp"
 #include "InsertionSort.cpp"
 #include "QuickSort.cpp"
+#include "BubbleSort.cpp"
+#include "CountingSort.cpp"
+#include "HeapSort.cpp"
+//#include "RadixSort.cpp"
+//#include "MergeSort.cpp"
 
 using namespace std;
 //------------------------------------------------------TO-DO-------------------------------------------------------------------
-/*Week 7	Mar 2–Mar 8	
-Implement 3 simple sorts (Insertion/Selection/Bubble)
-Define input generators (best/avg/worst)
-Decide input sizes (n values) + repetitions
-Code runs on small n; input generator produces intended cases
-Week 8	Mar 9–Mar 15	
-Implement Merge + Heap
-Implement Quicksort (best version / randomized or median-of-3)
-Validate correctness (unit tests)
-All implemented sorts pass correctness tests on random + edge cases*/
+/* 
+Finalize timing harness and run benchmarks for all algorithms and input types.
+run best-case experiements (all sorts, chosen n's) 
+start plotting time v.s. n graphs for best case for all algorithms
+results can be typed into google doc labeled as "CSCI 115 Final Project (final stretch) Assignments"
+
+*/
 //------------------------------------------------------------------------------------------------------------------------------
+
 // array of sorted values
 void bestCaseArr(int* arr, int size) {
     for (int i = 0; i < size; i++) {
@@ -66,9 +67,8 @@ void oneArr(int* arr, int size) {
     }
 }
 
-//void InsertionSort(int arr[], int n);
+void InsertionSort(int arr[], int n);
 void oneArr(int* arr, int size);
-
 //--------------------------------------------------------------------------------
 //--------------Printing small function for testing purposes----------------------
 //--------------------------------------------------------------------------------
@@ -97,6 +97,9 @@ bool isSorted(int arr[], int n) {
     return true;
 }
 //------------------------------------------------------------------------------------------------------------------------------
+
+
+
 //------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------WRAPPERS----------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------
@@ -105,14 +108,21 @@ bool isSorted(int arr[], int n) {
     mergeSort(arr, 0, n - 1);
 }
 */
+
+/*void radixSortWrapper(int arr[], int n) { // this wrapper is dependant on what radix sort takes as input, if (arr,n) we use this wrapper,
+    radixSort(arr, n); // if radix sort takes (arr, size, maxVal) then i will need to update this
+}
+*/
+
+
 void quickSortWrapper(int arr[], int n) {
     quickSort(arr, 0, n - 1);
 }
 
-/*void heapSortWrapper(int arr[], int n) {
+
+void heapSortWrapper(int arr[], int n) {
     heapSort(arr, n);
 }
-*/
 
 void testSort(void (*sortFunc)(int[], int), string name) {
     cout << "Testing " << name << "...\n";
@@ -141,6 +151,7 @@ void testSort(void (*sortFunc)(int[], int), string name) {
 }
 
 
+
 //------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------INT MAIN----------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------
@@ -148,15 +159,18 @@ int main() {
     //srand(time(NULL));
     cout << "Running correctness tests...\n";
 
-    //testSort(insertionSort, "Insertion Sort");
+    testSort(insertionSort, "Insertion Sort");
     testSort(selectionSort, "Selection Sort");
     testSort(bubbleSort, "Bubble Sort");
+    testSort(countingSort, "Counting Sort");
     //testSort(mergeSortWrapper, "Merge Sort");
-    //testSort(heapSortWrapper, "Heap Sort");
+    //testSort(radixSortWrapper, "Radix Sort");
+    testSort(heapSortWrapper, "Heap Sort");
     testSort(quickSortWrapper, "Quick Sort");
 
+
     cout << "Correctness tests complete.\n\n";
-    
+
     int algorithm; //algorithm is the user's choice for the sorting algorithm
     int size; //n is the size of the array
     int choice; //choice is the user's choice for the size of the array
@@ -182,12 +196,10 @@ int main() {
         cout << "invlaid choice.\n";
         return 0;
     }
-
     
-
     int* arr = new int[size]; // create array of size n
-    oneArr(arr,size); // fill array with random values where one is much larger than the others
-
+    // oneArr(arr,size); // fill array with random values where one is much larger than the others
+    
     cout << "Choose input type:\n";
     cout << "[1] Best case (sorted)\n";
     cout << "[2] Average case (random)\n";
@@ -227,22 +239,21 @@ int main() {
         // mergeSort(arr, 0, size - 1);
     } else if (algorithm == 5){
         quickSort(arr, 0, size-1);
-        for(int i = 0; i < size; i++){
-            cout << arr[i] << " ";
-        }
-        cout << endl;
     } else if (algorithm == 6){
         //heapSort(arr, size);
     } else if (algorithm == 7){
         /* code */
     }else if (algorithm == 8){
         /* code */
+        // oneArr(arr,size); // fill array with random values where one is much larger than the others
+        // radixSort(arr, size);
     } else{
         cout << "\ninvalid input";
     }
-     printSmall(arr, size);
-    
-    delete[] arr;
-    
+    printSmall(arr, size);
+
+    delete[] arr;// free memory allocated for array
+
+
     return 0;
 }
