@@ -104,15 +104,14 @@ bool isSorted(int arr[], int n) {
 //------------------------------------------------------WRAPPERS----------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------
 
-/*void mergeSortWrapper(int arr[], int n) {
+void mergeSortWrapper(int arr[], int n) {
     mergeSort(arr, 0, n - 1);
 }
-*/
 
-/*void radixSortWrapper(int arr[], int n) { // this wrapper is dependant on what radix sort takes as input, if (arr,n) we use this wrapper,
+
+void radixSortWrapper(int arr[], int n) { // this wrapper is dependant on what radix sort takes as input, if (arr,n) we use this wrapper,
     radixSort(arr, n); // if radix sort takes (arr, size, maxVal) then i will need to update this
 }
-*/
 
 
 void quickSortWrapper(int arr[], int n) {
@@ -163,8 +162,8 @@ int main() {
     testSort(selectionSort, "Selection Sort");
     testSort(bubbleSort, "Bubble Sort");
     testSort(countingSort, "Counting Sort");
-    //testSort(mergeSortWrapper, "Merge Sort");
-    //testSort(radixSortWrapper, "Radix Sort");
+    testSort(mergeSortWrapper, "Merge Sort");
+    testSort(radixSortWrapper, "Radix Sort");
     testSort(heapSortWrapper, "Heap Sort");
     testSort(quickSortWrapper, "Quick Sort");
 
