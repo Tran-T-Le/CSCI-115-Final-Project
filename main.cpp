@@ -7,14 +7,15 @@ Assignment: Sorting Algorithms
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <algorithm>
 #include "SelectionSort.cpp"
 #include "InsertionSort.cpp"
 #include "QuickSort.cpp"
 #include "BubbleSort.cpp"
 #include "CountingSort.cpp"
 #include "HeapSort.cpp"
-//#include "RadixSort.cpp"
-//#include "MergeSort.cpp"
+#include "RadixSort.cpp"
+#include "MergeSort.cpp"
 
 using namespace std;
 //------------------------------------------------------TO-DO-------------------------------------------------------------------
@@ -104,15 +105,15 @@ bool isSorted(int arr[], int n) {
 //------------------------------------------------------WRAPPERS----------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------
 
-/*void mergeSortWrapper(int arr[], int n) {
+void mergeSortWrapper(int arr[], int n) {
     mergeSort(arr, 0, n - 1);
 }
-*/
 
-/*void radixSortWrapper(int arr[], int n) { // this wrapper is dependant on what radix sort takes as input, if (arr,n) we use this wrapper,
+
+void radixSortWrapper(int arr[], int n) { // this wrapper is dependant on what radix sort takes as input, if (arr,n) we use this wrapper,
     radixSort(arr, n); // if radix sort takes (arr, size, maxVal) then i will need to update this
 }
-*/
+
 
 
 void quickSortWrapper(int arr[], int n) {
@@ -163,8 +164,8 @@ int main() {
     testSort(selectionSort, "Selection Sort");
     testSort(bubbleSort, "Bubble Sort");
     testSort(countingSort, "Counting Sort");
-    //testSort(mergeSortWrapper, "Merge Sort");
-    //testSort(radixSortWrapper, "Radix Sort");
+    testSort(mergeSortWrapper, "Merge Sort");
+    testSort(radixSortWrapper, "Radix Sort");
     testSort(heapSortWrapper, "Heap Sort");
     testSort(quickSortWrapper, "Quick Sort");
 
@@ -236,17 +237,17 @@ int main() {
     } else if (algorithm == 3){
         insertionSort(arr, size);
     } else if (algorithm == 4){
-        // mergeSort(arr, 0, size - 1);
+        mergeSort(arr, 0, size - 1);
     } else if (algorithm == 5){
         quickSort(arr, 0, size-1);
     } else if (algorithm == 6){
-        //heapSort(arr, size);
+        heapSort(arr, size);
     } else if (algorithm == 7){
         /* code */
     }else if (algorithm == 8){
         /* code */
         // oneArr(arr,size); // fill array with random values where one is much larger than the others
-        // radixSort(arr, size);
+         radixSort(arr, size);
     } else{
         cout << "\ninvalid input";
     }
