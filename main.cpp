@@ -19,11 +19,8 @@ Assignment: Sorting Algorithms
 using namespace std;
 //------------------------------------------------------TO-DO-------------------------------------------------------------------
 /* 
-Finalize timing harness and run benchmarks for all algorithms and input types.
 run best-case experiements (all sorts, chosen n's) 
 start plotting time v.s. n graphs for best case for all algorithms
-results can be typed into google doc labeled as "CSCI 115 Final Project (final stretch) Assignments"
-
 */
 //------------------------------------------------------------------------------------------------------------------------------
 
