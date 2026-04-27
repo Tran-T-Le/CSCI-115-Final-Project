@@ -7,6 +7,7 @@ Assignment: Sorting Algorithms
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <algorithm>
 #include "SelectionSort.cpp"
 #include "InsertionSort.cpp"
 #include "QuickSort.cpp"
