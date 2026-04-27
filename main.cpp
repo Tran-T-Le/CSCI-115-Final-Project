@@ -19,8 +19,8 @@ Assignment: Sorting Algorithms
 
 using namespace std;
 //------------------------------------------------------TO-DO-------------------------------------------------------------------
-/* 
-run best-case experiements (all sorts, chosen n's) 
+/*
+run best-case experiements (all sorts, chosen n's)
 start plotting time v.s. n graphs for best case for all algorithms
 */
 //------------------------------------------------------------------------------------------------------------------------------
@@ -42,12 +42,12 @@ void worstCaseArr(int* arr, int size) {
 // array of random values <size
 void randomArr(int* arr, int size) {
     for (int i = 0; i < size; i++) {
-        
+
         arr[i] = rand()%size;
     }
 }
 
-// random values of 7 digits 
+// random values of 7 digits
 void randomLargeArr(int* arr, int size) {
     for (int i = 0; i < size; i++) {
 
@@ -148,6 +148,19 @@ void testSort(void (*sortFunc)(int[], int), string name) {
     }
 }
 
+// Function to help the user choice to turn the menu into a loop
+// Helps chooses another option without rebuilding the entire program
+
+int nextActionMenu() {
+    int action;
+    cout << "\nWhat would you like to do next?\n";
+    cout << "[1] Run another sorting test\n";
+    cout << "[2] Exit program\n";
+    cout << "Choice: ";
+    cin >> action;
+    return action;
+}
+
 
 
 
@@ -169,6 +182,10 @@ int main() {
 
 
     cout << "Correctness tests complete.\n\n";
+
+    bool keepRunning = true;
+
+    while (keepRunning) {
 
     int algorithm; //algorithm is the user's choice for the sorting algorithm
     int size; //n is the size of the array
@@ -195,10 +212,10 @@ int main() {
         cout << "invlaid choice.\n";
         return 0;
     }
-    
+
     int* arr = new int[size]; // create array of size n
     // oneArr(arr,size); // fill array with random values where one is much larger than the others
-    
+
     cout << "Choose input type:\n";
     cout << "[1] Best case (sorted)\n";
     cout << "[2] Average case (random)\n";
@@ -215,7 +232,7 @@ int main() {
     cout << "Invalid input type.\n";
     return 0;
     }
-    
+
     cout << "Choose one of the following sorting algorithms: \n";
     cout << "[1] Bubble Sort\n";
     cout << "[2] Selection Sort\n";
@@ -284,10 +301,16 @@ int main() {
     } else{
         cout << "\ninvalid input";
     }
-    printSmall(arr, size);
+      printSmall(arr, size);
 
-    delete[] arr;// free memory allocated for array
+int action = nextActionMenu();
 
+if (action == 2) {
+    keepRunning = false;
+}
 
-    return 0;
+delete[] arr;// free memory allocated for array
+}
+
+return 0;
 }
