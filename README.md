@@ -79,7 +79,7 @@ The program offers 3 input types per sorting algorithm:
 
 ---
 ## 5. Program Features
-### Part 1:
+### Part 1: Time Complexity / Running Time Analysis
 - correctness testing
 - input size selection menu
 - input type selection menu
@@ -93,11 +93,10 @@ The program offers 3 input types per sorting algorithm:
 ---
 ## 6. Dependencies
 - C++ language & libraries
-- <iostream>
-- <ctime>
-- <cstdlib>
-- <algorithm>
-
+- " #include <iostream> "
+- " #include <ctime> "
+- " #include <cstdlib> "
+- " #include <algorithm> "
 
 --- 
 -- References:
