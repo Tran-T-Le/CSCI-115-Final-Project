@@ -15,7 +15,7 @@ Assignment: Sorting Algorithms
 #include "CountingSort.cpp"
 #include "HeapSort.cpp"
 #include "RadixSort.cpp"
-#include "MergeSort.cpp"
+#include "MergeSort.cpp"9
 
 using namespace std;
 //------------------------------------------------------TO-DO-------------------------------------------------------------------
@@ -192,7 +192,7 @@ int main() {
     int choice; //choice is the user's choice for the size of the array
 
     cout << "Choose the size of your array: \n";
-    cout << "[1]: 100 [2]: 1,000 [3]: 10,000 [4]: 100,000 [5]: 500,000 [6]: 1,000,000 \n";
+    cout << "[1]: 100 [2]: 1,000 [3]: 10,000 [4]: 100,000 [5]: 500,000 \n";
 
     cin >> choice;
 
@@ -206,9 +206,8 @@ int main() {
         size = 100000;
     } else if(choice == 5){
         size = 500000;
-    } else if(choice == 6){
-        size = 1000000;
-    } else{
+    }
+       else{
         cout << "invlaid choice.\n";
         return 0;
     }
