@@ -32,7 +32,13 @@
 
 ---
 ## How to run Part 2
-
+- Run `Twosum.cpp`
+- Program prints the sample vector of integers
+- User enters a target value
+- Program runs `bruteForce` on the sample vector
+- Program runs `twoPointer` on the same sample vector
+- Program prints whether a pair exists for both methods
+- The results are used to compare the logic and theoretical time complexity of the two approaches
 
 ---
 ## How to reproduce graphs
@@ -49,7 +55,25 @@ Part 1:
 10. Program allows the user run another test without rebuilding and repeats 5 times per each algorithms and input size in order to collect data.
  
 Part 2:
-1. 
+### 'bruteForce'
+- The bruteforce function is the simple method
+- It uses two nested loops to check every possible pair of numbers in the vector
+- For each pair, it adds the two values together and compares the sum to the target
+- If one pair matches then it exists
+- If the loops finish and no pair are found, then it doesn't exists
+
+### 'twoPointer'
+- TwoPointer are the more efficient method compared to brute force
+- It first sorts the vector from smallest to largest
+- It then places:
+    - one pointer at the beginning
+    - one pointer at the end
+- It then adds two values together
+    - If the sum equals the target, then it returns true
+    - If the sum is smaller, the left pointer move to the right
+    - If the sum is bigger, the right pointer move to the left
+    - This continues until a pair is found, then it will output as "a pair exists"
+    - If no pairs are found, then the function returns "pair doesn't exists"  
 
 ---
 ## Notes, Assumptions, Limitations and Known Issues
