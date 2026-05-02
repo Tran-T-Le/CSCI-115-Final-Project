@@ -9,10 +9,26 @@
 - Enviroment used: console & terminal program, compatible with Visual Studio Code, CodeBlocks or any command line builds
 ---
 ## How to run Part 1
-- User is prompted to select an input size, where the user selects an option by typing the associated number to the input size.
-- User is prompted to select an input type, where the user then selects an option by typing the associated number to the input type.
-- User is prompted to select a sorting algorithm, user selects the sorting algorithm by typing the associated number to the sorting algorithm.
-- The program then outputs the sorted values, and outputs the measured time to run and complete the sorting.
+- User is prompted to select an input size, where the user selects an option by typing the associated number assigned to the input size.
+    - [1]100
+    - [2]1,000
+    - [3]10,000
+    - [4]100,000
+    - [5]500,000
+- User is prompted to select an input type, where the user then selects an option by typing the associated number assigned to the input type.
+    - [1][ Best Case ] - already sorted
+    - [2][ Average Case ] - random values
+    - [3][ Worst Case ] - reverse sorted
+- User is prompted to select a sorting algorithm, user selects the sorting algorithm by typing the associated number assigned to the sorting algorithm.
+  - [1] Bubble Sort
+  - [2] Selection Sort
+  - [3] Insertion Sort
+  - [4] Merge Sort
+  - [5] Quick Sort
+  - [6] Heap Sort
+  - [7] Counting Sort
+  - [8] Radix Sort
+- The program then outputs the sorted values, and outputs the measured time in milliseconds to run and complete the sorting.
 
 ---
 ## How to run Part 2
@@ -24,15 +40,7 @@
 Part 1:
 1. Runs correctness tests for all sorting algorithms
 2. User selects an input size
-  - 100
-  - 1,000
-  - 10,000
-  - 100,000
-  - 500,000
 4. User selects an input type
-  - [ Best Case ] - already sorted
-  - [ Average Case ] - random values
-  - [ Worst Case ] - reverse sorted
 5. User selects a sorting algorithm
 6. Runs the selected algorithm
 7. Measures execution time
